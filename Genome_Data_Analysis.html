@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genomic Data Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        header,
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .chart-container:hover {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fadeIn">
+        <h1>Genomic Data Analysis</h1>
+    </header>
+
+    <!-- Genomic Scatter Plot -->
+    <div class="chart-container fadeIn" style="animation-delay: 0s;">
+        <h2>Genomic Data Scatter Plot</h2>
+        <div id="genomicScatterPlot"></div>
+    </div>
+
+    <!-- Genomic Line Chart -->
+    <div class="chart-container fadeIn" style="animation-delay: 0.2s;">
+        <h2>Genomic Data Line Chart</h2>
+        <div id="genomicLineChart"></div>
+    </div>
+
+    <!-- Genomic Heatmap -->
+    <div class="chart-container fadeIn" style="animation-delay: 0.4s;">
+        <h2>Genomic Data Heatmap</h2>
+        <div id="genomicHeatmap"></div>
+    </div>
+
+    <!-- Genomic Bar Chart -->
+    <div class="chart-container fadeIn" style="animation-delay: 0.6s;">
+        <h2>Genomic Data Bar Chart</h2>
+        <div id="genomicBarChart"></div>
+    </div>
+
+    <!-- Genomic Box Plot -->
+    <div class="chart-container fadeIn" style="animation-delay: 0.8s;">
+        <h2>Genomic Data Box Plot</h2>
+        <div id="genomicBoxPlot"></div>
+    </div>
+
+    <!-- Genomic Pie Chart -->
+    <div class="chart-container fadeIn" style="animation-delay: 1s;">
+        <h2>Genomic Data Pie Chart</h2>
+        <div id="genomicPieChart"></div>
+    </div>
+
+    <!-- Genomic Doughnut Chart -->
+    <div class="chart-container fadeIn" style="animation-delay: 1.2s;">
+        <h2>Genomic Data Doughnut Chart</h2>
+        <div id="genomicDoughnutChart"></div>
+    </div>
+
+    <!-- Genomic Polar Chart -->
+    <div class="chart-container fadeIn" style="animation-delay: 1.4s;">
+        <h2>Genomic Data Polar Chart</h2>
+        <div id="genomicPolarChart"></div>
+    </div>
+
+    <!-- Genomic Sunburst Chart -->
+    <div class="chart-container fadeIn" style="animation-delay: 1.6s;">
+        <h2>Genomic Data Sunburst Chart</h2>
+        <div id="genomicSunburstChart"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Rachel S. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Example genomic data
+        var genomicData = [
+            { position: 100, value: 0.2 },
+            { position: 200, value: 0.5 },
+            { position: 300, value: 0.8 },
+            // Add more data points as needed
+        ];
+
+        // Generate dummy analysis results
+        var analysisResults = [
+            { category: 'Variant Call', count: 150 },
+            { category: 'Mutation Analysis', count: 80 },
+            { category: 'Gene Expression', count: 200 },
+        ];
+
+        // Genomic Scatter Plot
+        var scatterLayout = {
+            title: 'Genomic Data Scatter Plot',
+            xaxis: { title: 'Genomic Position' },
+            yaxis: { title: 'Genomic Value' }
+        };
+
+        var scatterData = [{
+            type: 'scatter',
+            mode: 'markers',
+            x: genomicData.map(point => point.position),
+            y: genomicData.map(point => point.value),
+            marker: {
+                size: 10,
+                color: 'blue',
+            }
+        }];
+
+        Plotly.newPlot('genomicScatterPlot', scatterData, scatterLayout);
+
+        // Genomic Line Chart
+        var lineLayout = {
+            title: 'Genomic Data Line Chart',
+            xaxis: { title: 'Genomic Position' },
+            yaxis: { title: 'Genomic Value' }
+        };
+
+        var lineData = [{
+            type: 'line',
+            x: genomicData.map(point => point.position),
+            y: genomicData.map(point => point.value),
+            line: { color: 'green' }
+        }];
+
+        Plotly.newPlot('genomicLineChart', lineData, lineLayout);
+
+        // Genomic Heatmap
+        var heatmapLayout = {
+            title: 'Genomic Data Heatmap',
+            xaxis: { title: 'Genomic Position' },
+            yaxis: { title: 'Analysis Category' }
+        };
+
+        var heatmapData = [{
+            type: 'heatmap',
+            z: [analysisResults.map(result => result.count)],
+            x: genomicData.map(point => point.position),
+            y: ['Analysis Results'],
+            colorscale: 'Viridis'
+        }];
+
+        Plotly.newPlot('genomicHeatmap', heatmapData, heatmapLayout);
+
+        // Genomic Bar Chart
+        var barLayout = {
+            title: 'Genomic Data Bar Chart',
+            xaxis: { title: 'Analysis Category' },
+            yaxis: { title: 'Count' }
+        };
+
+        var barData = [{
+            type: 'bar',
+            x: analysisResults.map(result => result.category),
+            y: analysisResults.map(result => result.count),
+            marker: {
+                color: 'purple',
+            }
+        }];
+
+        Plotly.newPlot('genomicBarChart', barData, barLayout);
+
+        // Genomic Box Plot
+        var boxPlotLayout = {
+            title: 'Genomic Data Box Plot',
+            yaxis: { title: 'Genomic Value' }
+        };
+
+        var boxPlotData = [{
+            type: 'box',
+            y: genomicData.map(point => point.value),
+            boxpoints: 'all',
+            jitter: 0.3,
+            pointpos: -1.8,
+            marker: { color: 'orange' }
+        }];
+        Plotly.newPlot('genomicBoxPlot', boxPlotData, boxPlotLayout);
+
+        // Genomic Pie Chart
+        var pieLayout = {
+            title: 'Genomic Data Pie Chart',
+        };
+
+        var pieData = [{
+            type: 'pie',
+            labels: analysisResults.map(result => result.category),
+            values: analysisResults.map(result => result.count),
+            marker: {
+                colors: ['red', 'green', 'blue'],
+            },
+        }];
+
+        Plotly.newPlot('genomicPieChart', pieData, pieLayout);
+
+        // Genomic Doughnut Chart
+        var doughnutLayout = {
+            title: 'Genomic Data Doughnut Chart',
+        };
+
+        var doughnutData = [{
+            type: 'pie',
+            labels: analysisResults.map(result => result.category),
+            values: analysisResults.map(result => result.count),
+            marker: {
+                colors: ['red', 'green', 'blue'],
+            },
+            hole: 0.4,
+        }];
+
+        Plotly.newPlot('genomicDoughnutChart', doughnutData, doughnutLayout);
+
+        // Genomic Polar Chart
+        var polarLayout = {
+            title: 'Genomic Data Polar Chart',
+            polar: {
+                radialaxis: {
+                    visible: true,
+                    range: [0, Math.max(...genomicData.map(point => point.value))],
+                },
+            },
+        };
+
+        var polarData = [{
+            type: 'scatterpolar',
+            r: genomicData.map(point => point.value),
+            theta: genomicData.map(point => point.position),
+            fill: 'toself',
+            line: { color: 'purple' },
+        }];
+
+        Plotly.newPlot('genomicPolarChart', polarData, polarLayout);
+
+        // Genomic Sunburst Chart
+        var sunburstLayout = {
+            title: 'Genomic Data Sunburst Chart',
+        };
+
+        var sunburstData = [{
+            type: 'sunburst',
+            labels: analysisResults.map(result => result.category),
+            parents: ['', '', ''],
+            values: analysisResults.map(result => result.count),
+        }];
+
+        Plotly.newPlot('genomicSunburstChart', sunburstData, sunburstLayout);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chartContainers = document.querySelectorAll('.chart-container');
+            chartContainers.forEach(container => {
+                container.classList.add('show');
+            });
+        });
+    </script>
+</body>
+
+</html>
