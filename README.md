@@ -1,4 +1,8 @@
-![image](https://github.com/Rachel2705/Genome_Data_Analysis/assets/136056290/51cd6b73-2377-4f4f-8cbb-cf130afa92c5)# Genome_Data_Analysis
+![image](https://github.com/Rachel2705/Genome_Data_Analysis/assets/136056290/51cd6b73-2377-4f4f-8cbb-cf130afa92c5)
+![image](https://github.com/Rachel2705/Genome_Data_Analysis/blob/main/charts.jpg.jpg)
+
+# Genome_Data_Analysis
+http://127.0.0.1:3000/Visualization/.html
 
 ---
 
