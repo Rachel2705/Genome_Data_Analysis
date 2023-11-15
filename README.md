@@ -1,5 +1,4 @@
 ![image](https://github.com/Rachel2705/Genome_Data_Analysis/assets/136056290/51cd6b73-2377-4f4f-8cbb-cf130afa92c5)# Genome_Data_Analysis
-Certainly! Below is an explanation of the code that you can include in your GitHub README, along with instructions on how to access the charts via a local server.
 
 ---
 
