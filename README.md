@@ -9,6 +9,7 @@ This repository contains an HTML file for visualizing genomic data using various
 ## Charts
 
 ### Genomic Data Scatter Plot
+![Alt Text](https://github.com/Rachel2705/Genome_Data_Analysis/blob/main/newplot%20(1).png)
 ![Genomic Data Scatter Plot](https://github.com/Rachel2705/Genome_Data_Analysis/blob/main/newplot%20(1).png)
 
 This scatter plot represents genomic data with points corresponding to positions and values.
